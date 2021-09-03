@@ -36,7 +36,20 @@ public class Desafio {
                     System.out.println("Por favor, digite o email do funcionário: ");
                     String email = leitor.nextLine();
 
-                    funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone + " Email: " + email);
+                    if (funcionarios.size() != 0){
+                        for (String cpfIgual : funcionarios.keySet()){
+                            if (cpfIgual.equals(cpf)){
+                                System.out.println("Cpf já cadastrado");
+                            } else{
+                                funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone + " Email: " + email);
+                                System.out.println("Funcionário cadastrado com sucesso.ha");
+                            }
+                        }
+                    }else{
+                        funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone + " Email: " + email);
+                        System.out.println("Funcionário cadastrado com sucesso.");
+                    }
+
                     break;
                 case 2:
                     //Lista de funcionarios adicionados
