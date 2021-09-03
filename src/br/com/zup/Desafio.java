@@ -12,17 +12,21 @@ public class Desafio {
         int menu = 0;
         int escolhaMenu = 1;
 
-
+        //Bem vindo
         System.out.println("Olá, bem vindo!");
         System.out.println("Irei te ajudar a gerenciar uma lista de funcionários.");
 
         while (escolhaMenu == 1){
+            //Menu Principal
             System.out.println("Digite 1: Para adicionar funcionário");
-            System.out.println("Digite 2: Para remover funcionário");
+            System.out.println("Digite 2: Para ver a lista de funcionários");
+            System.out.println("Digite 3: Para remover funcionário");
             menu = leitor.nextInt();
             leitor.nextLine();
+
             switch (menu) {
                 case 1:
+                    //Adicionar um funcionario
                     System.out.println("Por favor, digite o nome do funcionário: ");
                     String nome = leitor.nextLine();
                     System.out.println("Por favor, digite o número do funcionário: ");
@@ -33,15 +37,25 @@ public class Desafio {
                     String email = leitor.nextLine();
 
                     funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone + " Email: " + email);
-                    System.out.println(funcionarios);
                     break;
                 case 2:
+                    //Lista de funcionarios adicionados
+                    for (String listaDeFuncionarios : funcionarios.keySet()){
+                        System.out.println("Informações dos funcionários: " + funcionarios.get(listaDeFuncionarios) + " Cpf: " + listaDeFuncionarios);
+                    }
+                    break;
+                case 3:
+                    //Remove funcionario ja cadastrado
                     break;
                 default:
+                    //Cliente digitando numero menor que 1 ou maior que 3
                     System.out.println("Número invalido.");
                     break;
             }
+            //Criando um mini menu para retorna para o menu principal
+            System.out.println();
             System.out.println("Digite 1: Para voltar ao menu principal");
+            System.out.println("Digite 2: Para finalizar o programa");
             escolhaMenu = leitor.nextInt();
         }
         System.out.println("Programa finalizado");
