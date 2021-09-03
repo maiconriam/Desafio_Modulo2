@@ -46,6 +46,17 @@ public class Desafio {
                     break;
                 case 3:
                     //Remove funcionario ja cadastrado
+                    System.out.println("Por favor, digite o cpf do funcionário que você deseja remover: ");
+                    String cpfDeletado = leitor.nextLine();
+                    for (String listaCPF : funcionarios.keySet()){
+                        if(cpfDeletado.equals(listaCPF)){
+                            funcionarios.remove(cpfDeletado);
+                            System.out.println("Funcionário deletado com sucesso.");
+                            break;
+                        }else{
+                            System.out.println("Funcionário não cadastrado.");
+                        }
+                    }
                     break;
                 default:
                     //Cliente digitando numero menor que 1 ou maior que 3
@@ -55,7 +66,6 @@ public class Desafio {
             //Criando um mini menu para retorna para o menu principal
             System.out.println();
             System.out.println("Digite 1: Para voltar ao menu principal");
-            System.out.println("Digite 2: Para finalizar o programa");
             escolhaMenu = leitor.nextInt();
         }
         System.out.println("Programa finalizado");
