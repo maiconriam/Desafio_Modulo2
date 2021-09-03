@@ -15,6 +15,7 @@ public class Desafio {
         //Bem vindo
         System.out.println("Olá, bem vindo!");
         System.out.println("Irei te ajudar a gerenciar uma lista de funcionários.");
+        System.out.println();
 
         while (escolhaMenu == 1){
             //Menu Principal
@@ -36,10 +37,12 @@ public class Desafio {
                     System.out.println("Por favor, digite o email do funcionário: ");
                     String email = leitor.nextLine();
 
+                    //Não deixar adicionar funcionario com o mesmo CPF
                     if (funcionarios.size() != 0){
                         for (String cpfIgual : funcionarios.keySet()){
                             if (cpfIgual.equals(cpf)){
                                 System.out.println("Cpf já cadastrado");
+                                break;
                             } else{
                                 funcionarios.put(cpf, "Nome: " + nome + " Telefone: " + telefone + " Email: " + email);
                                 System.out.println("Funcionário cadastrado com sucesso.ha");
@@ -63,8 +66,9 @@ public class Desafio {
                     String cpfDeletado = leitor.nextLine();
                     for (String listaCPF : funcionarios.keySet()){
                         if(cpfDeletado.equals(listaCPF)){
-                            funcionarios.remove(cpfDeletado);
+                            System.out.println("Dados do funcionário: CPF: "+ listaCPF + " " + funcionarios.get(listaCPF));
                             System.out.println("Funcionário deletado com sucesso.");
+                            funcionarios.remove(cpfDeletado);
                             break;
                         }else{
                             System.out.println("Funcionário não cadastrado.");
@@ -79,6 +83,7 @@ public class Desafio {
             //Criando um mini menu para retorna para o menu principal
             System.out.println();
             System.out.println("Digite 1: Para voltar ao menu principal");
+            System.out.println("Digite 2: Para finalizar o programa");
             escolhaMenu = leitor.nextInt();
         }
         System.out.println("Programa finalizado");
